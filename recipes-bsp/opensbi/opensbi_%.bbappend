@@ -1,27 +1,27 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-BRANCH:orangepi-rv2 = "v2022.10-ky"
+BRANCH:x1-orangepi = "v2022.10-ky"
 # Support fdt drivers for AE350
 SRCREV:ae350-ax45mp = "22f38ee6c658a660083aa45c4ec6c72f66a17260"
 # JH7110_VF2_6.12_v6.0.0
 SRCREV:jh7100 = "1725bd71080960290fdde4499a58c25c09d5c8ee"
 SRCREV:star64 = "c6a092cd80112529cb2e92e180767ff5341b22a3"
-SRCREV:orangepi-rv2 = "89bff4a7e4cadfb5f130edb1ec44c39bff20a427"
+SRCREV:x1-orangepi = "89bff4a7e4cadfb5f130edb1ec44c39bff20a427"
 
 SRC_URI:star64 = "git://github.com/starfive-tech/opensbi;branch=JH7110_VisionFive2_devel;protocol=https"
 SRC_URI:append:star64 = "\
 	file://visionfive2-uboot-fit-image.its \
 	"
 
-SRC_URI:orangepi-rv2 = "git://github.com/orangepi-xunlong/u-boot-orangepi.git;protocol=https;branch=${BRANCH}"
-SRC_URI:append:orangepi-rv2 = " file://c23-compatibility.patch"
-S:orangepi-rv2 = "${UNPACKDIR}/${BP}/opensbi"
+SRC_URI:x1-orangepi = "git://github.com/orangepi-xunlong/u-boot-orangepi.git;protocol=https;branch=${BRANCH}"
+SRC_URI:append:x1-orangepi = " file://c23-compatibility.patch"
+S:x1-orangepi = "${UNPACKDIR}/${BP}/opensbi"
 
 DEPENDS:append:jh7110 = " u-boot-tools-native dtc-native"
-DEPENDS:append:orangepi-rv2 = " u-boot-tools-native"
+DEPENDS:append:x1-orangepi = " u-boot-tools-native"
 
 EXTRA_OEMAKE:append:milkv-duo = "FW_FDT_PATH=${DEPLOY_DIR_IMAGE}/u-boot.dtb"
-EXTRA_OEMAKE:append:orangepi-rv2 = " PLATFORM_DEFCONFIG=k1_defconfig"
+EXTRA_OEMAKE:append:x1-orangepi = " PLATFORM_DEFCONFIG=k1_defconfig"
 
 _DEPS = ""
 _DEPS:milkv-duo = "u-boot:do_deploy"
