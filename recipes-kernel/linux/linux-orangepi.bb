@@ -40,4 +40,4 @@ do_deploy:append:x1-orangepi() {
 		-d ${INITRAMFS_IMAGE}-${MACHINE}.cpio.gz initramfs.img
 }
 
-COMPATIBLE_MACHINE = "orangepi-rv2 orangepi-r2s"
+COMPATIBLE_MACHINE = "^x1-orangepi$"
